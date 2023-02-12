@@ -1,12 +1,4 @@
-// const data = async()=>{
 
-//     const response = await fetch("https://restcountries.com/v3.1/region/asia");
-//     const res = await response.json();
-//     console.log({"res":res})
-
-
-// }
-// data()
 export async function getCountries(region) {
   console.log(region)
   try {
@@ -22,33 +14,6 @@ export async function getCountries(region) {
 
 }
 
-async function getAllCountries() {
-  var requestOptions = {
-    method: 'GET',
-    redirect: 'follow'
-  };
-
-  fetch("https://countriesnow.space/api/v0.1/countries/iso", requestOptions)
-    .then(response => response.text())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
-}
-
-function getCountryCities() {
-  var raw = "{\n    \"iso2\": \"NG\"\n}";
-
-  var requestOptions = {
-    method: 'POST',
-    body: raw,
-    redirect: 'follow'
-  };
-
-  fetch("https://countriesnow.space/api/v0.1/countries/capital", requestOptions)
-    .then(response => response.text())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
-
-}
 async function getCountriesCities() {
   var requestOptions = {
     method: 'GET',
@@ -64,10 +29,6 @@ async function getCountriesCities() {
   }
 
 
-}
-async function displayCountriesCities() {
-  let response = await getCountriesCities();
-  console.log(response.data);
 }
 
 // displayCountriesCities();
@@ -109,6 +70,8 @@ async function getCitiesPopulations() {
   }
 
 }
+
+
 export async function getOnlyPopulations(country) {
   const countryCities = [];
   let citiesPopulations = await getCitiesPopulations();

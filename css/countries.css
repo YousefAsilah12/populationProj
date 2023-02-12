@@ -19,6 +19,18 @@
   gap: 1rem;
   margin: auto;
 }
+@media only screen and (max-width: 700px) {
+  .countryPage .container .countries{
+    grid-template-columns: repeat(5,1fr);
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  .countryPage .container .countries{
+    grid-template-columns: repeat(2,1fr);
+  }
+}
+
 .graph{
   width: 100%;
   height: fit-content;

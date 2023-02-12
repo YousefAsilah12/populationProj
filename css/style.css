@@ -28,6 +28,14 @@ body {
   display: flex;
   flex-direction: row;
   gap: 1rem;
+  flex-wrap: wrap;
+}
+
+@media only screen and (max-width: 576px) {
+  .continints{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    }
 }
 .btn{
   padding: 1rem;

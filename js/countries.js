@@ -8,17 +8,9 @@ import {
 
 
 import { buildButtons } from "./main.js";
-// const continentsNames = document.querySelectorAll(".btn-continints");
-// continentsNames.forEach((button) => {
-//   button.addEventListener("click", (e) => {
-//     ;
-//     localStorage.setItem("clickedContinint",e.target.value);
-//     getCountriesasync(e.target.value);
-//     window.location.href = "countries.html"
-//   })
-// });
 
 buildButtons
+
 const continint = localStorage.getItem("clickedContinint").toString();
 const countries = JSON.parse(localStorage.getItem(continint));
 const countriesParent = document.querySelector(".countries")
@@ -54,8 +46,8 @@ async function main() {
 
 }
 
-let myChart = null;
 
+let myChart = null;
 function displayGraphCities(cities) {
   ;
   
@@ -118,9 +110,6 @@ async function buildCoutriesButtons(countries) {
     countriesParent.appendChild(button)
   });
 }
-
-
-
 
 
 
