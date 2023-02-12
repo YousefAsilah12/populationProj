@@ -7,17 +7,18 @@ import {
 } from "./getData.js";
 
 
-import { getCountriesasync } from "./main.js";
-const continentsNames = document.querySelectorAll(".btn-continints");
-continentsNames.forEach((button) => {
-  button.addEventListener("click", (e) => {
-    debugger;
-    localStorage.setItem("clickedContinint",e.target.value);
-    getCountriesasync(e.target.value);
-    window.location.href = "countries.html"
-  })
-});
+import { buildButtons } from "./main.js";
+// const continentsNames = document.querySelectorAll(".btn-continints");
+// continentsNames.forEach((button) => {
+//   button.addEventListener("click", (e) => {
+//     ;
+//     localStorage.setItem("clickedContinint",e.target.value);
+//     getCountriesasync(e.target.value);
+//     window.location.href = "countries.html"
+//   })
+// });
 
+buildButtons
 const continint = localStorage.getItem("clickedContinint").toString();
 const countries = JSON.parse(localStorage.getItem(continint));
 const countriesParent = document.querySelector(".countries")
@@ -25,15 +26,7 @@ const countriesParent = document.querySelector(".countries")
 let firstCanvas = document.querySelector("#myChart");
 let secondCanvas = document.querySelector("#myChart2");
 
-function showFirstCanvas() {
-  firstCanvas.style.display = "block";
-  secondCanvas.style.display = "none";
-}
 
-function showSecondCanvas() {
-  firstCanvas.style.display = "none";
-  secondCanvas.style.display = "block";
-}
 
 main();
 
@@ -48,7 +41,7 @@ async function main() {
     const countriesParentchildren = document.querySelectorAll(".btn-country")
     countriesParentchildren.forEach((c) => {
       c.addEventListener("click", async (e) => {
-        debugger;
+        ;
         localStorage.setItem("clickedCountry", e.target.value)
         const cities = await getOnlyPopulations(localStorage.getItem("clickedCountry"))
         displayGraphCities(cities)
@@ -64,7 +57,7 @@ async function main() {
 let myChart = null;
 
 function displayGraphCities(cities) {
-  debugger;
+  ;
   
   showSecondCanvas()
   let canvas = document.getElementById('myChart2');
@@ -162,3 +155,12 @@ function displayGraph(labels, data) {
   });
 }
 
+function showFirstCanvas() {
+  firstCanvas.style.display = "block";
+  secondCanvas.style.display = "none";
+}
+
+function showSecondCanvas() {
+  firstCanvas.style.display = "none";
+  secondCanvas.style.display = "block";
+}

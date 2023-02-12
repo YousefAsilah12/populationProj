@@ -1,14 +1,25 @@
-const countriesUrl = new URL("https://restcountries.com/v3.1/region/");
-// const citiesUrl=new  ;
-let cities = [];
-let countries = [];
+// const data = async()=>{
+
+//     const response = await fetch("https://restcountries.com/v3.1/region/asia");
+//     const res = await response.json();
+//     console.log({"res":res})
 
 
-
-
+// }
+// data()
 export async function getCountries(region) {
-  const response = await fetch(countriesUrl + region).then(res => res.json());
-  return response
+  console.log(region)
+  try {
+    const response = await fetch("https://restcountries.com/v3.1/region/" + region);
+    const res = await response.json();
+    return res
+  } catch (err) {
+    console.log({
+      error: err
+    })
+
+  }
+
 }
 
 async function getAllCountries() {
@@ -63,7 +74,7 @@ async function displayCountriesCities() {
 
 
 export async function getSpecificCountryCities(scountry) {
-  debugger
+
   let response = await getCountriesCities();
   console.log("before filter", response);
   let filteredData = response.data.find(c => c.country === scountry);
@@ -138,11 +149,11 @@ export function getPopulationDataByYear(cities) {
 }
 
 export function getLastPopUpdate(cities) {
-  let arrRes=[];
+  let arrRes = [];
   let selected = localStorage.getItem("clickedCountry");
   cities.forEach(city => {
     if (city.country === selected) {
-        arrRes.push(city.populationCounts[0].value);
+      arrRes.push(city.populationCounts[0].value);
     }
 
   })
